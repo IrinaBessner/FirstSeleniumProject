@@ -45,9 +45,9 @@ public class FindElemensTests {
         //className
         driver.findElement(By.className("input-container"));
         //name By.name("user");
-        //link text
+        //link text - старая стратегия и медленная
         driver.findElement(By.linkText("Let the car work"));
-        //partial link text
+        //partial link text самая старая стратегия, возможна частичное совпадение
         driver.findElement(By.partialLinkText("work"));
 
     }
@@ -78,7 +78,7 @@ public class FindElemensTests {
     //xPath  //*tag[@attr='value']
     @Test
     public void findElementByXpath(){
-        //tag name = tag name
+        //tag name = //tag name
         //driver.findElement(By.cssSelector("h1"));
         driver.findElement(By.xpath("//h1"));
 
@@ -103,7 +103,6 @@ public class FindElemensTests {
         driver.findElement(By.xpath("//span[contains(text(), 'mistake')]"));
         driver.findElement(By.xpath("//span[contains(., 'mistake')]"));
 
-
         // search of parent element - //input[@id='username']/..
         // //div/a - child - css = div>a
         // //div//a - any level child - css = div a
@@ -111,16 +110,10 @@ public class FindElemensTests {
         //tag1[.tag2[@attr='value']] поиск выполняется относительно текущего элемента
         //*[@id='firstName' or @ @name='lastName']
         //*[@id='firstName' and @ @name='lastName']
-
-
-
     }
-
-
 
     @AfterMethod
     public void tearDown(){
-
         driver.quit();
     }
 }
